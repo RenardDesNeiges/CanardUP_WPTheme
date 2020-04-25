@@ -523,4 +523,9 @@ function twentytwenty_customize_opacity_range() {
 			'step' => 5,
 		)
 	);
+
+	add_shortcode('postColor', 'my_var_number');
+	function my_var_number($atts, $content = null) {
+    	return 'This will become the color setting';
+	}
 }

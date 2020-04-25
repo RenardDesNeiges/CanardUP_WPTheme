@@ -63,7 +63,6 @@ if ( ! function_exists( 'twentytwenty_get_customizer_css' ) ) {
 		$borders_default   = '#dcd7ca';
 		$accent            = sanitize_hex_color( twentytwenty_get_color_for_area( 'content', 'accent' ) );
 		$accent_default    = '#d9181b';
-		$accent = '#d9181b';
 
 		// Header.
 		$header_footer_background         = sanitize_hex_color( twentytwenty_get_color_for_area( 'header-footer', 'background' ) );

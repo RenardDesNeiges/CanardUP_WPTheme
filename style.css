@@ -2680,10 +2680,12 @@ h2.entry-title {
 	top: 0;
 }
 
-.featured-media img {
+
+.featured-media cover-header bg-image {
 	filter: grayscale(100%);
 	margin: 0 auto;
 }
+
 
 .featured-media figcaption {
 	margin: 1.5rem auto 0 auto;
