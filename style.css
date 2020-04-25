@@ -289,7 +289,7 @@ path {
 	/* stylelint-disable-line font-weight-notation */
 	font-style: normal;
 	font-display: swap;
-	src: url(./assets/fonts/aileron/Aileron-Thin.otf);
+	src: url(./assets/fonts/aileron/Aileron-Regular.otf);
 }
 
 @font-face {
@@ -298,7 +298,7 @@ path {
 	/* stylelint-disable-line font-weight-notation */
 	font-style: italic;
 	font-display: swap;
-	src: url(./assets/fonts/aileron/Aileron-ThinItalic.otf§);
+	src: url(./assets/fonts/aileron/Aileron-Italic.otf);
 }
 @font-face {
 	font-family: "Aileron";
@@ -4892,7 +4892,7 @@ a.to-the-top > * {
 	/* SECTIONS */
 
 	section {
-		padding: 8rem 0;
+		padding: 1rem 0;
 	}
 
 	.section-inner {
@@ -5387,7 +5387,7 @@ a.to-the-top > * {
 	.entry-content h1,
 	.entry-content h2,
 	.entry-content h3 {
-		margin: 6rem auto 3rem;
+		margin: 3rem auto 3rem;
 	}
 
 	.entry-content h4,
@@ -6493,4 +6493,14 @@ a.to-the-top > * {
 	.wp-block-pullquote.is-style-solid-color.alignright::before {
 		top: 0;
 	}
+}
+
+/* REALLY UGLY FIXES FOR STUFF, THIS IS SHITTY CODE BEWARE */
+
+.csl-left-margin{
+	width: 2em;
+}
+
+.abt-footnotes{
+	margin-bottom: 0;
 }
