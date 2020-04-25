@@ -50,26 +50,28 @@ if ( ! function_exists( 'twentytwenty_get_customizer_css' ) ) {
 	 * Get CSS Built from Customizer Options.
 	 * Build CSS reflecting colors, fonts and other options set in the Customizer, and return them for output.
 	 *
+	 * @param int|false $post the post_id if we are viewing a post
 	 * @param string $type Whether to return CSS for the "front-end", "block-editor" or "classic-editor".
+	 * @return string The CSS
 	 */
-	function twentytwenty_get_customizer_css( $type = 'front-end' ) {
+	function twentytwenty_get_customizer_css($post, $type = 'front-end' ) {
 
 		// Get variables.
-		$body              = sanitize_hex_color( twentytwenty_get_color_for_area( 'content', 'text' ) );
+		$body              = sanitize_hex_color( twentytwenty_get_color_for_area(get_the_ID(), 'content', 'text' ) );
 		$body_default      = '#000000';
-		$secondary         = sanitize_hex_color( twentytwenty_get_color_for_area( 'content', 'secondary' ) );
+		$secondary         = sanitize_hex_color( twentytwenty_get_color_for_area(get_the_ID(), 'content', 'secondary' ) );
 		$secondary_default = '#6d6d6d';
-		$borders           = sanitize_hex_color( twentytwenty_get_color_for_area( 'content', 'borders' ) );
+		$borders           = sanitize_hex_color( twentytwenty_get_color_for_area(get_the_ID(), 'content', 'borders' ) );
 		$borders_default   = '#dcd7ca';
-		$accent            = sanitize_hex_color( twentytwenty_get_color_for_area( 'content', 'accent' ) );
+		$accent            = sanitize_hex_color( twentytwenty_get_color_for_area(get_the_ID(), 'content', 'accent' ) );
 		$accent_default    = '#d9181b';
 
 		// Header.
-		$header_footer_background         = sanitize_hex_color( twentytwenty_get_color_for_area( 'header-footer', 'background' ) );
+		$header_footer_background         = sanitize_hex_color( twentytwenty_get_color_for_area(get_the_ID(), 'header-footer', 'background' ) );
 		$header_footer_background_default = '#ffffff';
 
 		// Cover.
-		$cover         = twentytwenty_get_color_for_area( 'content', 'accent' );//sanitize_hex_color( get_theme_mod( 'cover_template_overlay_text_color' ) );
+		$cover         = twentytwenty_get_color_for_area(get_the_ID(), 'content', 'accent' );//sanitize_hex_color( get_theme_mod( 'cover_template_overlay_text_color' ) );
 		$cover_default = '#ffffff';
 
 		// Background.
@@ -103,7 +105,7 @@ if ( ! function_exists( 'twentytwenty_get_customizer_css' ) ) {
 						if ( ! is_array( $elements ) || empty( $elements ) ) {
 							continue;
 						}
-						$val = twentytwenty_get_color_for_area( $context, $key );
+						$val = twentytwenty_get_color_for_area($post, $context, $key );
 						if ( $val ) {
 							twentytwenty_generate_css( implode( ',', $elements ), $property, $val );
 						}

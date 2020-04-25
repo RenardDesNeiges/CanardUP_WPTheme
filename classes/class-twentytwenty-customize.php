@@ -137,6 +137,12 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 			 * @since 1.0.0
 			 */
 
+			 /*
+			 There is for sure a nicer way to implement accents than what I did, but i'm not gonna learn it lol
+			 */
+
+			//default accent (GREEN)
+
 			// Add the setting for the hue colorpicker.
 			$wp_customize->add_setting(
 				'accent_hue',
@@ -180,7 +186,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 					array(
 						'section'         => 'colors',
 						'settings'        => 'accent_hue',
-						'description'     => __( 'Apply a custom color for links, buttons, featured images.', 'twentytwenty' ),
+						'description'     => __( 'Apply a custom color for links, buttons, featured images. GREEN', 'twentytwenty' ),
 						'mode'            => 'hue',
 						'active_callback' => function() use ( $wp_customize ) {
 							return ( 'custom' === $wp_customize->get_setting( 'accent_hue_active' )->value() );
@@ -189,8 +195,218 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 				)
 			);
 
-			// Update background color with postMessage, so inline CSS output is updated as well.
-			$wp_customize->get_setting( 'background_color' )->transport = 'postMessage';
+			//accent RED
+
+			$wp_customize->add_setting(
+				'accent_hue_RED',
+				array(
+					'default'           => 344,
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'absint',
+					'transport'         => 'postMessage',
+				)
+			);
+
+			// Add setting to hold colors derived from the accent hue.
+			$wp_customize->add_setting(
+				'accent_accessible_colors_RED',
+				array(
+					'default'           => array(
+						'content'       => array(
+							'text'      => '#000000',
+							'accent'    => '#cd2653',
+							'secondary' => '#6d6d6d',
+							'borders'   => '#dcd7ca',
+						),
+						'header-footer' => array(
+							'text'      => '#000000',
+							'accent'    => '#cd2653',
+							'secondary' => '#6d6d6d',
+							'borders'   => '#dcd7ca',
+						),
+					),
+					'type'              => 'theme_mod',
+					'transport'         => 'postMessage',
+					'sanitize_callback' => array( __CLASS__, 'sanitize_accent_accessible_colors' ),
+				)
+			);
+
+			// Add the hue-only colorpicker for the accent color.
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'accent_hue_RED',
+					array(
+						'section'         => 'colors',
+						'settings'        => 'accent_hue_RED',
+						'description'     => __( 'Apply a custom color for links, buttons, featured images. RED', 'twentytwenty' ),
+						'mode'            => 'hue',
+						'active_callback' => function() use ( $wp_customize ) {
+							return ( 'custom' === $wp_customize->get_setting( 'accent_hue_active' )->value() );
+						},
+					)
+				)
+			);
+
+
+			//accent BLUE
+
+			$wp_customize->add_setting(
+				'accent_hue_BLUE',
+				array(
+					'default'           => 344,
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'absint',
+					'transport'         => 'postMessage',
+				)
+			);
+
+			// Add setting to hold colors derived from the accent hue.
+			$wp_customize->add_setting(
+				'accent_accessible_colors_BLUE',
+				array(
+					'default'           => array(
+						'content'       => array(
+							'text'      => '#000000',
+							'accent'    => '#cd2653',
+							'secondary' => '#6d6d6d',
+							'borders'   => '#dcd7ca',
+						),
+						'header-footer' => array(
+							'text'      => '#000000',
+							'accent'    => '#cd2653',
+							'secondary' => '#6d6d6d',
+							'borders'   => '#dcd7ca',
+						),
+					),
+					'type'              => 'theme_mod',
+					'transport'         => 'postMessage',
+					'sanitize_callback' => array( __CLASS__, 'sanitize_accent_accessible_colors' ),
+				)
+			);
+
+			// Add the hue-only colorpicker for the accent color.
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'accent_hue_BLUE',
+					array(
+						'section'         => 'colors',
+						'settings'        => 'accent_hue_BLUE',
+						'description'     => __( 'Apply a custom color for links, buttons, featured images. BLUE', 'twentytwenty' ),
+						'mode'            => 'hue',
+						'active_callback' => function() use ( $wp_customize ) {
+							return ( 'custom' === $wp_customize->get_setting( 'accent_hue_active' )->value() );
+						},
+					)
+				)
+			);
+
+			//accent PINK
+
+			$wp_customize->add_setting(
+				'accent_hue_PINK',
+				array(
+					'default'           => 344,
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'absint',
+					'transport'         => 'postMessage',
+				)
+			);
+
+			// Add setting to hold colors derived from the accent hue.
+			$wp_customize->add_setting(
+				'accent_accessible_colors_PINK',
+				array(
+					'default'           => array(
+						'content'       => array(
+							'text'      => '#000000',
+							'accent'    => '#cd2653',
+							'secondary' => '#6d6d6d',
+							'borders'   => '#dcd7ca',
+						),
+						'header-footer' => array(
+							'text'      => '#000000',
+							'accent'    => '#cd2653',
+							'secondary' => '#6d6d6d',
+							'borders'   => '#dcd7ca',
+						),
+					),
+					'type'              => 'theme_mod',
+					'transport'         => 'postMessage',
+					'sanitize_callback' => array( __CLASS__, 'sanitize_accent_accessible_colors' ),
+				)
+			);
+
+			// Add the hue-only colorpicker for the accent color.
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'accent_hue_PINK',
+					array(
+						'section'         => 'colors',
+						'settings'        => 'accent_hue_PINK',
+						'description'     => __( 'Apply a custom color for links, buttons, featured images. PINK', 'twentytwenty' ),
+						'mode'            => 'hue',
+						'active_callback' => function() use ( $wp_customize ) {
+							return ( 'custom' === $wp_customize->get_setting( 'accent_hue_active' )->value() );
+						},
+					)
+				)
+			);
+
+			//accent ORANGE
+
+			$wp_customize->add_setting(
+				'accent_hue_ORANGE',
+				array(
+					'default'           => 344,
+					'type'              => 'theme_mod',
+					'sanitize_callback' => 'absint',
+					'transport'         => 'postMessage',
+				)
+			);
+
+			// Add setting to hold colors derived from the accent hue.
+			$wp_customize->add_setting(
+				'accent_accessible_colors_ORANGE',
+				array(
+					'default'           => array(
+						'content'       => array(
+							'text'      => '#000000',
+							'accent'    => '#cd2653',
+							'secondary' => '#6d6d6d',
+							'borders'   => '#dcd7ca',
+						),
+						'header-footer' => array(
+							'text'      => '#000000',
+							'accent'    => '#cd2653',
+							'secondary' => '#6d6d6d',
+							'borders'   => '#dcd7ca',
+						),
+					),
+					'type'              => 'theme_mod',
+					'transport'         => 'postMessage',
+					'sanitize_callback' => array( __CLASS__, 'sanitize_accent_accessible_colors' ),
+				)
+			);
+
+			// Add the hue-only colorpicker for the accent color.
+			$wp_customize->add_control(
+				new WP_Customize_Color_Control(
+					$wp_customize,
+					'accent_hue_ORANGE',
+					array(
+						'section'         => 'colors',
+						'settings'        => 'accent_hue_ORANGE',
+						'description'     => __( 'Apply a custom color for links, buttons, featured images. ORANGE', 'twentytwenty' ),
+						'mode'            => 'hue',
+						'active_callback' => function() use ( $wp_customize ) {
+							return ( 'custom' === $wp_customize->get_setting( 'accent_hue_active' )->value() );
+						},
+					)
+				)
+			);
 
 			/**
 			 * Theme Options
@@ -253,7 +469,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 				'blog_content',
 				array(
 					'capability'        => 'edit_theme_options',
-					'default'           => 'full',
+					'default'           => 'summary',
 					'sanitize_callback' => array( __CLASS__, 'sanitize_select' ),
 				)
 			);
@@ -339,7 +555,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 			$wp_customize->add_setting(
 				'cover_template_overlay_background_color',
 				array(
-					'default'           => twentytwenty_get_color_for_area( 'content', 'accent' ),
+					'default'           => twentytwenty_get_color_for_area(false, 'content', 'accent' ),
 					'sanitize_callback' => 'sanitize_hex_color',
 				)
 			);
@@ -361,7 +577,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 			$wp_customize->add_setting(
 				'cover_template_overlay_text_color',
 				array(
-					'default'           => twentytwenty_get_color_for_area( 'content', 'accent' ),
+					'default'           => twentytwenty_get_color_for_area(false, 'content', 'accent' ),
 					'sanitize_callback' => 'sanitize_hex_color',
 				)
 			);
@@ -523,9 +739,4 @@ function twentytwenty_customize_opacity_range() {
 			'step' => 5,
 		)
 	);
-
-	add_shortcode('postColor', 'my_var_number');
-	function my_var_number($atts, $content = null) {
-    	return 'This will become the color setting';
-	}
 }

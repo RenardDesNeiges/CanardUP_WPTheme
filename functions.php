@@ -185,7 +185,7 @@ function twentytwenty_register_styles() {
 	wp_style_add_data( 'twentytwenty-style', 'rtl', 'replace' );
 
 	// Add output of Customizer settings as inline style.
-	wp_add_inline_style( 'twentytwenty-style', twentytwenty_get_customizer_css( 'front-end' ) );
+	wp_add_inline_style( 'twentytwenty-style', twentytwenty_get_customizer_css(false, 'front-end' ) );
 
 	// Add print CSS.
 	wp_enqueue_style( 'twentytwenty-print-style', get_template_directory_uri() . '/print.css', null, $theme_version, 'print' );
@@ -395,7 +395,7 @@ function twentytwenty_block_editor_styles() {
 	wp_style_add_data( 'twentytwenty-block-editor-styles', 'rtl', 'replace' );
 
 	// Add inline style from the Customizer.
-	wp_add_inline_style( 'twentytwenty-block-editor-styles', twentytwenty_get_customizer_css( 'block-editor' ) );
+	wp_add_inline_style( 'twentytwenty-block-editor-styles', twentytwenty_get_customizer_css(false, 'block-editor' ) );
 
 	// Add inline style for non-latin fonts.
 	wp_add_inline_style( 'twentytwenty-block-editor-styles', TwentyTwenty_Non_Latin_Languages::get_non_latin_css( 'block-editor' ) );
@@ -431,7 +431,7 @@ add_action( 'init', 'twentytwenty_classic_editor_styles' );
  */
 function twentytwenty_add_classic_editor_customizer_styles( $mce_init ) {
 
-	$styles = twentytwenty_get_customizer_css( 'classic-editor' );
+	$styles = twentytwenty_get_customizer_css(false, 'classic-editor' );
 
 	if ( ! isset( $mce_init['content_style'] ) ) {
 		$mce_init['content_style'] = $styles . ' ';
@@ -485,22 +485,22 @@ function twentytwenty_block_editor_settings() {
 		array(
 			'name'  => __( 'Accent Color', 'twentytwenty' ),
 			'slug'  => 'accent',
-			'color' => twentytwenty_get_color_for_area( 'content', 'accent' ),
+			'color' => twentytwenty_get_color_for_area(false, 'content', 'accent' ),
 		),
 		array(
 			'name'  => __( 'Primary', 'twentytwenty' ),
 			'slug'  => 'primary',
-			'color' => twentytwenty_get_color_for_area( 'content', 'text' ),
+			'color' => twentytwenty_get_color_for_area(false, 'content', 'text' ),
 		),
 		array(
 			'name'  => __( 'Secondary', 'twentytwenty' ),
 			'slug'  => 'secondary',
-			'color' => twentytwenty_get_color_for_area( 'content', 'secondary' ),
+			'color' => twentytwenty_get_color_for_area(false, 'content', 'secondary' ),
 		),
 		array(
 			'name'  => __( 'Subtle Background', 'twentytwenty' ),
 			'slug'  => 'subtle-background',
-			'color' => twentytwenty_get_color_for_area( 'content', 'borders' ),
+			'color' => twentytwenty_get_color_for_area(false, 'content', 'borders' ),
 		),
 	);
 
@@ -554,7 +554,7 @@ function twentytwenty_block_editor_settings() {
 
 	// If we have a dark background color then add support for dark editor style.
 	// We can determine if the background color is dark by checking if the text-color is white.
-	if ( '#ffffff' === strtolower( twentytwenty_get_color_for_area( 'content', 'text' ) ) ) {
+	if ( '#ffffff' === strtolower( twentytwenty_get_color_for_area(false, 'content', 'text' ) ) ) {
 		add_theme_support( 'dark-editor-style' );
 	}
 
@@ -628,37 +628,135 @@ add_action( 'customize_preview_init', 'twentytwenty_customize_preview_init' );
  * Get accessible color for an area.
  *
  * @since 1.0.0
- *
+ * 
+ * @param int|false $post Either the post ID or false, for default value
  * @param string $area The area we want to get the colors for.
  * @param string $context Can be 'text' or 'accent'.
  * @return string Returns a HEX color.
  */
-function twentytwenty_get_color_for_area( $area = 'content', $context = 'text' ) {
+function twentytwenty_get_color_for_area($post, $area = 'content', $context = 'text' ) {
 
 	// Get the value from the theme-mod.
-	$settings = get_theme_mod(
-		'accent_accessible_colors',
-		array(
-			'content'       => array(
-				'text'      => '#000000',
-				'accent'    => '#db2121',
-				'secondary' => '#7d7979',
-				'borders'   => '#dcd7ca',
-			),
-			'header-footer' => array(
-				'text'      => '#000000',
-				'accent'    => '#db2121',
-				'secondary' => '#7d7979',
-				'borders'   => '#dcd7ca',
-			),
-		)
-	);
+	if($post != false){
+		if(get_post_meta($post, 'color', true) == "red"){
+			$settings = get_theme_mod(
+			'accent_accessible_colors_RED',
+			array(
+				'content'       => array(
+					'text'      => '#000000',
+					'accent'    => '#db2121',
+					'secondary' => '#7d7979',
+					'borders'   => '#dcd7ca',
+				),
+				'header-footer' => array(
+					'text'      => '#000000',
+					'accent'    => '#db2121',
+					'secondary' => '#7d7979',
+					'borders'   => '#dcd7ca',
+				),
+			)
+			);
+		}
+		elseif(get_post_meta($post, 'color', true) == "blue"){
+			$settings = get_theme_mod(
+			'accent_accessible_colors_BLUE',
+			array(
+				'content'       => array(
+					'text'      => '#000000',
+					'accent'    => '#db2121',
+					'secondary' => '#7d7979',
+					'borders'   => '#dcd7ca',
+				),
+				'header-footer' => array(
+					'text'      => '#000000',
+					'accent'    => '#db2121',
+					'secondary' => '#7d7979',
+					'borders'   => '#dcd7ca',
+				),
+			)
+			);
+		}
+		elseif(get_post_meta($post, 'color', true) == "pink"){
+			$settings = get_theme_mod(
+			'accent_accessible_colors_PINK',
+			array(
+				'content'       => array(
+					'text'      => '#000000',
+					'accent'    => '#db2121',
+					'secondary' => '#7d7979',
+					'borders'   => '#dcd7ca',
+				),
+				'header-footer' => array(
+					'text'      => '#000000',
+					'accent'    => '#db2121',
+					'secondary' => '#7d7979',
+					'borders'   => '#dcd7ca',
+				),
+			)
+			);
+		}
+		elseif(get_post_meta($post, 'color', true) == "orange"){
+			$settings = get_theme_mod(
+			'accent_accessible_colors',
+			array(
+				'content'       => array(
+					'text'      => '#000000',
+					'accent'    => '#db2121',
+					'secondary' => '#7d7979',
+					'borders'   => '#dcd7ca',
+				),
+				'header-footer' => array(
+					'text'      => '#000000',
+					'accent'    => '#db2121',
+					'secondary' => '#7d7979',
+					'borders'   => '#dcd7ca',
+				),
+			)
+			);
+		}
+		else{
+			$settings = get_theme_mod(
+			'accent_accessible_colors',
+			array(
+				'content'       => array(
+					'text'      => '#000000',
+					'accent'    => '#db2121',
+					'secondary' => '#7d7979',
+					'borders'   => '#dcd7ca',
+				),
+				'header-footer' => array(
+					'text'      => '#000000',
+					'accent'    => '#db2121',
+					'secondary' => '#7d7979',
+					'borders'   => '#dcd7ca',
+				),
+			)
+			);
+		}
+	}
+	else{
+		$settings = get_theme_mod(
+			'accent_accessible_colors',
+			array(
+				'content'       => array(
+					'text'      => '#000000',
+					'accent'    => '#db2121',
+					'secondary' => '#7d7979',
+					'borders'   => '#dcd7ca',
+				),
+				'header-footer' => array(
+					'text'      => '#000000',
+					'accent'    => '#db2121',
+					'secondary' => '#7d7979',
+					'borders'   => '#dcd7ca',
+				),
+			)
+		);
+	}
 	
 	// If we have a value return it.
-	if(get_post_meta($post->ID, 'Mood', true) != "red"){
-		if ( isset( $settings[ $area ] ) && isset( $settings[ $area ][ $context ] ) ) {
-			return $settings[ $area ][ $context ];
-		}
+	if ( isset( $settings[ $area ] ) && isset( $settings[ $area ][ $context ] ) ) {
+		return $settings[ $area ][ $context ];
 	}
 
 	// Return false if the option doesn't exist.
