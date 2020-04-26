@@ -79,7 +79,9 @@ get_header(); //first we load the header from the wordpress DB
 
 	//This is 		T H E   L O O P
 	if ( have_posts() ) {
-		$i = 0;
+		the_post();
+		get_template_part( 'template-parts/content-cover/summary', get_post_type() );
+		$i = 1;
 		//this is the part of the loop that goes through every post (or a fixed max number but it is the server that handles that) to display it
 		while ( have_posts() ) {
 			$i++;

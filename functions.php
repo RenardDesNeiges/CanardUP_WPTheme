@@ -645,13 +645,13 @@ function twentytwenty_get_color_for_area($post, $area = 'content', $context = 't
 			array(
 				'content'       => array(
 					'text'      => '#000000',
-					'accent'    => '#db2121',
+					'accent'    => '#db0f0f',
 					'secondary' => '#7d7979',
 					'borders'   => '#dcd7ca',
 				),
 				'header-footer' => array(
 					'text'      => '#000000',
-					'accent'    => '#db2121',
+					'accent'    => '#db0f0f',
 					'secondary' => '#7d7979',
 					'borders'   => '#dcd7ca',
 					'white'		=> '#ffffff'
@@ -694,14 +694,14 @@ function twentytwenty_get_color_for_area($post, $area = 'content', $context = 't
 			array(
 				'content'       => array(
 					'text'      => '#000000',
-					'accent'    => '#9624d4',
+					'accent'    => '#a26bc2',
 					'secondary' => '#7d7979',
 					'borders'   => '#dcd7ca',
 					'white'		=> '#ffffff'
 				),
 				'header-footer' => array(
 					'text'      => '#000000',
-					'accent'    => '#9624d4',
+					'accent'    => '#a26bc2',
 					'secondary' => '#7d7979',
 					'borders'   => '#dcd7ca',
 					'white'		=> '#ffffff'
