@@ -82,7 +82,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 					'description' => __( 'Scales the logo to half its uploaded size, making it sharp on high-res screens.', 'twentytwenty' ),
 				)
 			);
-
+			/*
 			// Header & Footer Background Color.
 			$wp_customize->add_setting(
 				'header_footer_background_color',
@@ -103,7 +103,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 					)
 				)
 			);
-
+			
 			// Enable picking an accent color.
 			$wp_customize->add_setting(
 				'accent_hue_active',
@@ -127,7 +127,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 					),
 				)
 			);
-
+			*/
 			/**
 			 * Implementation for the accent color.
 			 * This is different to all other color options because of the accessibility enhancements.
@@ -142,7 +142,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 			 */
 
 			//default accent (GREEN)
-
+			/*
 			// Add the setting for the hue colorpicker.
 			$wp_customize->add_setting(
 				'accent_hue',
@@ -407,7 +407,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 					)
 				)
 			);
-
+			*/
 			/**
 			 * Theme Options
 			 */
