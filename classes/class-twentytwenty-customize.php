@@ -555,7 +555,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 			$wp_customize->add_setting(
 				'cover_template_overlay_background_color',
 				array(
-					'default'           => twentytwenty_get_color_for_area(false, 'content', 'accent' ),
+					'default'           => twentytwenty_get_color_for_area(get_the_ID(), 'content', 'accent' ),
 					'sanitize_callback' => 'sanitize_hex_color',
 				)
 			);
@@ -577,7 +577,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 			$wp_customize->add_setting(
 				'cover_template_overlay_text_color',
 				array(
-					'default'           => twentytwenty_get_color_for_area(false, 'content', 'accent' ),
+					'default'           => twentytwenty_get_color_for_area(get_the_ID(), 'content', 'accent' ),
 					'sanitize_callback' => 'sanitize_hex_color',
 				)
 			);

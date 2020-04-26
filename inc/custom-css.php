@@ -105,7 +105,7 @@ if ( ! function_exists( 'twentytwenty_get_customizer_css' ) ) {
 						if ( ! is_array( $elements ) || empty( $elements ) ) {
 							continue;
 						}
-						$val = twentytwenty_get_color_for_area($post, $context, $key );
+						$val = twentytwenty_get_color_for_area(get_the_ID(), $context, $key );
 						if ( $val ) {
 							twentytwenty_generate_css( implode( ',', $elements ), $property, $val );
 						}
