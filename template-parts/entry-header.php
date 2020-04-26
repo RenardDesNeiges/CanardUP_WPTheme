@@ -15,7 +15,7 @@ if ( is_singular() ) {
 
 ?>
 
-<header class="entry-header has-text-align-center<?php echo esc_attr( $entry_header_classes ); ?>">
+<header class="entry-header has-text-align-center <?php echo esc_attr( $entry_header_classes ); ?>">
 
 	<div class="entry-header-inner section-inner medium">
 
@@ -31,11 +31,22 @@ if ( is_singular() ) {
 
 		if ( true === $show_categories && has_category() ) {
 			?>
-
-			<div class="entry-categories">
+			<div class="entry-categories" >
 				<span class="screen-reader-text"><?php _e( 'Categories', 'twentytwenty' ); ?></span>
 				<div class="entry-categories-inner">
-					<?php the_category( ' ' ); ?>
+					<?php //the_category( ' ' ); 
+						$categories = get_the_category();
+						$separator = ' ';
+						$output = '';
+						if ( ! empty( $categories ) ) {
+							if(is_singular()){$white = 'white-entry';}
+							else{$white = "";}
+						    foreach( $categories as $category ) {
+						        $output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" class="'. $white. '"' . '>' . esc_html( $category->name ) . '</a>' . $separator;
+						    }
+					    echo trim( $output, $separator );
+}
+					?>
 				</div><!-- .entry-categories-inner -->
 			</div><!-- .entry-categories -->
 

@@ -316,7 +316,7 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 
 		?>
 
-		<div class="post-meta-wrapper<?php echo esc_attr( $post_meta_wrapper_classes ); ?>">
+		<div class="post-meta-wrapper<?php echo esc_attr( $post_meta_wrapper_classes );?>">
 
 			<ul class="post-meta<?php echo esc_attr( $post_meta_classes ); ?>">
 
@@ -343,11 +343,11 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 					$has_meta = true;
 					?>
 					<li class="post-author meta-wrapper">
-						<span class="meta-icon">
+						<span class="meta-icon <?php if(is_singular()){echo(" white-entry");} ?>">
 							<span class="screen-reader-text"><?php _e( 'Post author', 'twentytwenty' ); ?></span>
 							<?php twentytwenty_the_theme_svg( 'user' ); ?>
 						</span>
-						<span class="meta-text">
+						<span class="meta-text <?php if(is_singular()){echo(" white-entry");} ?>">
 							<?php
 							printf(
 								/* translators: %s: Author name */
@@ -366,7 +366,7 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 
 					$has_meta = true;
 					?>
-					<li class="post-date meta-wrapper">
+					<li class="post-date meta-wrapper <?php if(is_singular()){echo(" white-entry");} ?>">
 						<span class="meta-icon">
 							<span class="screen-reader-text"><?php _e( 'Post date', 'twentytwenty' ); ?></span>
 							<?php twentytwenty_the_theme_svg( 'calendar' ); ?>

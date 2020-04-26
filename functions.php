@@ -866,7 +866,7 @@ function twentytwenty_get_elements_array() {
 				'background-color' => array( '.header-footer-group table caption', 'body:not(.overlay-header) .header-inner .toggle-wrapper::before' ),
 			),
 			'white'		=> array(
-				'color' => array('body:not(.overlay-header) .toggle-inner .toggle-text','body:not(.overlay-header) .primary-menu > li > .icon','body:not(.overlay-header) .primary-menu > li > a', '.site-description','body:not(.overlay-header) #site-header .toggle','body:not(.overlay-header) .entry-categories-inner',".sing.entry-categories-inner",".archive-title",".footer-copyright",'.modal-menu a','.menu-modal .toggle',".ancestor-wrapper"),
+				'color' => array('body:not(.overlay-header) .toggle-inner .toggle-text','body:not(.overlay-header) .primary-menu > li > .icon','body:not(.overlay-header) .primary-menu > li > a', '.site-description','body:not(.overlay-header) #site-header .toggle','body:not(.overlay-header) .entry-categories-inner',".sing.entry-categories-inner",".archive-title",".footer-copyright",'.modal-menu a','.menu-modal .toggle',".ancestor-wrapper",".white-entry"),
 			),
 		),
 	);

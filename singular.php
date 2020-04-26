@@ -12,7 +12,7 @@
 get_header();
 ?>
 
-<main id="site-content" class="sing" role="main">
+<main id="site-content" role="main">
 
 	<?php
 
