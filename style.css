@@ -3316,7 +3316,7 @@ figure.wp-block-gallery.alignfull {
 .wp-block-pullquote::before {
 	background: #fff;
 	border-radius: 50%;
-	color: #db3e32;
+	/*color: #db3e32;*/
 	content: "”";
 	display: block;
 	font-size: 6.2rem;

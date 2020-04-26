@@ -17,7 +17,7 @@
 get_header(); //first we load the header from the wordpress DB 
 ?>
 
-<main id="site-content" role="main">
+<main id="site-content" class="index" role="main">
 
 	<?php
 	//Then we actually get to displaying the page
@@ -32,7 +32,7 @@ get_header(); //first we load the header from the wordpress DB
 
 		$archive_title = sprintf(
 			'%1$s %2$s',
-			'<span class="color-accent">' . __( 'Search:', 'twentytwenty' ) . '</span>',
+			'<span>' . __( 'Search:', 'twentytwenty' ) . '</span>',
 			'&ldquo;' . get_search_query() . '&rdquo;'
 		);
 

@@ -729,7 +729,7 @@ function twentytwenty_get_the_archive_title( $title ) {
 		'twentytwenty_get_the_archive_title_regex',
 		array(
 			'pattern'     => '/(\A[^\:]+\:)/',
-			'replacement' => '<span class="color-accent">$1</span>',
+			'replacement' => '<span>$1</span>',
 		)
 	);
 
