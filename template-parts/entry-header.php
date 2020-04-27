@@ -39,7 +39,7 @@ if ( is_singular() ) {
 						$separator = ' ';
 						$output = '';
 						if ( ! empty( $categories ) ) {
-							if(is_singular()){$white = 'white-entry';}
+							if(is_singular() && !is_home()){$white = 'white-entry';}
 							else{$white = "";}
 						    foreach( $categories as $category ) {
 						        $output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" class="'. $white. '"' . '>' . esc_html( $category->name ) . '</a>' . $separator;
@@ -56,7 +56,7 @@ if ( is_singular() ) {
 		if ( is_singular() ) {
 			the_title( '<h1 class="entry-title">', '</h1>' );
 		} else {
-			the_title( '<h2 class="entry-title heading-size-1"><a href="' . esc_url( get_permalink() ) . '">', '</a></h2>' );
+			the_title( '<h3 class="entry-title heading-size-3"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
 		}
 
 		$intro_text_width = '';

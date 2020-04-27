@@ -1,6 +1,6 @@
 <?php
 /**
- * Displays the content when the cover template is used.
+ * Displays the content when the cover-summary template is used.
  *
  * @package WordPress
  * @subpackage Twenty_Twenty
@@ -44,8 +44,8 @@
 	$color_overlay_classes .= ' opacity-' . $color_overlay_opacity;
 	?>
 
-	<div class="cover-header <?php echo $cover_header_classes; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?>"<?php echo $cover_header_style; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- We need to double check this, but for now, we want to pass PHPCS ;) ?>>
-		<div class="cover-header-inner-wrapper screen-height">
+	<div class="cover-header cover-header-summary <?php echo $cover_header_classes; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?>"<?php echo $cover_header_style; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- We need to double check this, but for now, we want to pass PHPCS ;) ?>>
+		<div class="cover-header-inner-wrapper half-screen-height">
 			<div class="cover-header-inner">
 				<div class="cover-color-overlay color-accent<?php echo esc_attr( $color_overlay_classes ); ?>"<?php echo $color_overlay_style; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- We need to double check this, but for now, we want to pass PHPCS ;) ?>></div>
 
@@ -61,6 +61,10 @@
 							 *
 							 * @param bool Whether to show the categories in article header, Default true.
 							 */
+
+
+							echo('<h1 class="entry-title visible-nav" style="text-align:left; margin-bottom:1rem;"><a href="'. esc_url( get_permalink() ) . '"> À la une : </a></h1>');
+							echo('<h2 class="entry-title visible-mob" style="text-align:left; margin-bottom:1rem;"><a href="'. esc_url( get_permalink() ) . '"> À la une : </a></h2>');
 							$show_categories = apply_filters( 'twentytwenty_show_categories_in_entry_header', true );
 
 							if ( true === $show_categories && has_category() ) {
@@ -75,9 +79,19 @@
 
 								<?php
 							}
-
-							the_title( '<h1 class="entry-title">', '</h1>' );
-
+							the_title( '<h4 class="entry-title visible-mob" style="text-align:left; margin-top:0;margin-right:1em;"><a href="' . esc_url( get_permalink() ) . '">', '</a></h4>' );
+							
+							echo('<div><div style="width:50%;float: left;">');
+							the_title( '<h3 class="entry-title visible-nav" style="text-align:left; margin-top:0;margin-right:1em;"><a href="' . esc_url( get_permalink() ) . '">', '</a></h3>' );
+							if ( is_singular() ) {
+								$intro_text_width = ' small';
+							} else {
+								$intro_text_width = ' thin';
+							}
+							echo('</div><div style="width:50%;float: left; margin-top: 0rem;"><div class="intro-text section-inner max-percentage visible-nav' . esc_attr( $intro_text_width ) . '" style="color:#000000;text-align:left;font-weight: 600;font-family:Aileron;padding: 2em; background-color:#ffffff;text-shadow: 0px 0px;margin-top:0;box-shadow: 0.2em 0.2em 0.6em;">'.get_the_excerpt().'</div></div></div>');
+							echo('<div style="margin-top: 0rem;"><div class="intro-text section-inner max-percentage visible-mob toggle-low-height' . esc_attr( $intro_text_width ) . '" style="color:#000000;text-align:left;font-weight: 600;font-family:Aileron;padding: 2em; background-color:#ffffff;text-shadow: 0px 0px;margin-top:0;box-shadow: 0.2em 0.2em 0.6em;">'.get_the_excerpt().'</div></div>');
+							
+							edit_post_link();
 							if ( is_page() ) {
 								?>
 
@@ -92,7 +106,7 @@
 
 								<?php
 							} else {
-
+								
 								$intro_text_width = '';
 
 								if ( is_singular() ) {
@@ -122,61 +136,7 @@
 			</div><!-- .cover-header-inner -->
 		</div><!-- .cover-header-inner-wrapper -->
 	</div><!-- .cover-header -->
-
-	<div class="post-inner" id="post-inner">
-
-		<div class="entry-content">
-							
-		<?php
-		the_content();
-		?>
-
-		</div><!-- .entry-content -->
-		<?php
-		wp_link_pages(
-			array(
-				'before'      => '<nav class="post-nav-links bg-light-background" aria-label="' . esc_attr__( 'Page', 'twentytwenty' ) . '"><span class="label">' . __( 'Pages:', 'twentytwenty' ) . '</span>',
-				'after'       => '</nav>',
-				'link_before' => '<span class="page-number">',
-				'link_after'  => '</span>',
-			)
-		);
-
-		edit_post_link();
-		// Single bottom post meta.
-		twentytwenty_the_post_meta( get_the_ID(), 'single-bottom' );
-
-		if ( is_single() ) {
-
-			get_template_part( 'template-parts/entry-author-bio' );
-
-		}
-		?>
-
-	</div><!-- .post-inner -->
-
-	<?php
-
-	if ( is_single() ) {
-
-		get_template_part( 'template-parts/navigation' );
-	}
-
-	/**
-	 *  Output comments wrapper if it's a post, or if comments are open,
-	 * or if there's a comment number – and check for password.
-	 * */
-	if ( ( is_single() || is_page() ) && ( comments_open() || get_comments_number() ) && ! post_password_required() ) {
-		?>
-
-		<div class="comments-wrapper section-inner">
-
-			<?php comments_template(); ?>
-
-		</div><!-- .comments-wrapper -->
-
-		<?php
-	}
-	?>
+	
+	
 
 </article><!-- .post -->

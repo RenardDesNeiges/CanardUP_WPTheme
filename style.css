@@ -1040,6 +1040,10 @@ th {
 	min-height: 100vh;
 }
 
+.half-screen-height {
+	height: 82vh;
+}
+
 .admin-bar .screen-height {
 	min-height: calc(100vh - 32px);
 }
@@ -2478,7 +2482,7 @@ body.template-full-width [class*="wp-block"].alignfull:not(.has-background) [cla
 
 /* Posts ------------------------------------- */
 
-body:not(.singular) main > article:first-of-type {
+body:not(.singular):not(.home) main > article:first-of-type {
 	padding: 4rem 0 0;
 }
 
@@ -4816,12 +4820,12 @@ a.to-the-top > * {
 	h1,
 	.heading-size-1,
 	h2,
-	.heading-size-2,
-	h3,
-	.heading-size-3 {
+	.heading-size-2 {
 		margin: 6rem auto 3rem;
 	}
-
+	
+	/*h3,
+	.heading-size-3,*/
 	h4,
 	.heading-size-4,
 	h5,
@@ -5086,7 +5090,7 @@ a.to-the-top > * {
 		font-size: 3.2rem;
 	}
 
-	body:not(.singular) main > article:first-of-type {
+	body:not(.singular):not(.home) main>article:first-of-type {
 		padding: 8rem 0 0;
 	}
 
@@ -6505,4 +6509,26 @@ a.to-the-top > * {
 
 .abt-footnotes{
 	margin-bottom: 0;
+}
+
+.visible-nav{
+	display: block;
+}
+.visible-mob {
+	display: none;
+}
+
+@media (max-width: 900px) {
+	.visible-nav{
+		display: none !important;
+	}
+	.visible-mob {
+		display: block !important;
+	}
+}
+
+@media (max-height: 700px) {
+	.toggle-low-height {
+		display: none !important;
+	}
 }

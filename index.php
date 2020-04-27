@@ -79,21 +79,44 @@ get_header(); //first we load the header from the wordpress DB
 
 	//This is 		T H E   L O O P
 	if ( have_posts() ) {
-		the_post();
-		get_template_part( 'template-parts/content-cover/summary', get_post_type() );
-		$i = 1;
-		//this is the part of the loop that goes through every post (or a fixed max number but it is the server that handles that) to display it
-		while ( have_posts() ) {
-			$i++;
-			if ( $i > 1 ) {
-				// this is a separator
-				echo '<hr class="post-separator styled-separator is-style-wide section-inner" aria-hidden="true" />';
-			}
-			//here we call the post function (which gets the post)
+		//the index page is displayed differently than the categories/search pages
+		//this is the index
+		if(is_home()){
 			the_post();
-			//then the template function which displays the post (so here content is the template part file that we use)
-			get_template_part( 'template-parts/content', get_post_type() );
+			get_template_part( 'template-parts/content-cover-summary', get_post_type() );
+			$i = 0;
+			//this is the part of the loop that goes through every post (or a fixed max number but it is the server that handles that) to display it
+			while ( have_posts() ) {
+				$i++;
+				if ( $i == 1 ) {
+					// this is a separator
+					echo '<hr class="post-separator styled-separator is-style-wide section-inner" aria-hidden="true" style="color:#ffffff;margin-top:2em;margin-bottom:2em;"; />';
+				}
+				if ( $i > 1 ) {
+					// this is a separator
+					echo '<hr class="post-separator styled-separator is-style-wide section-inner" aria-hidden="true" />';
+				}
+				//here we call the post function (which gets the post)
+				the_post();
+				//then the template function which displays the post (so here content is the template part file that we use)
+				get_template_part( 'template-parts/content', get_post_type() );
 
+			}
+		}//this is the rest
+		else{
+			$i = 0;
+			while ( have_posts() ) {
+				$i++;
+				if ( $i > 1 ) {
+					// this is a separator
+					echo '<hr class="post-separator styled-separator is-style-wide section-inner" aria-hidden="true" />';
+				}
+				//here we call the post function (which gets the post)
+				the_post();
+				//then the template function which displays the post (so here content is the template part file that we use)
+				get_template_part( 'template-parts/content', get_post_type() );
+
+			}
 		}
 	} elseif ( is_search() ) {
 		?>
