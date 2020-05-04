@@ -63,8 +63,7 @@
 							 */
 
 
-							echo('<h1 class="entry-title visible-nav" style="text-align:left; margin-bottom:1rem;"><a href="'. esc_url( get_permalink() ) . '"> À la une : </a></h1>');
-							echo('<h2 class="entry-title visible-mob" style="text-align:left; margin-bottom:1rem;"><a href="'. esc_url( get_permalink() ) . '"> À la une : </a></h2>');
+							echo('<h1 class="entry-title" style="text-align:left; margin-bottom:1rem;"><a href="'. esc_url( get_permalink() ) . '"> À la une : </a></h1>');
 							$show_categories = apply_filters( 'twentytwenty_show_categories_in_entry_header', true );
 
 							if ( true === $show_categories && has_category() ) {
@@ -125,7 +124,9 @@
 									<?php
 								}
 
+								echo('<div style="width:100%;float:right;">');
 								twentytwenty_the_post_meta( get_the_ID(), 'single-top' );
+								echo('</div>');
 
 							}
 							?>
@@ -136,6 +137,18 @@
 			</div><!-- .cover-header-inner -->
 		</div><!-- .cover-header-inner-wrapper -->
 	</div><!-- .cover-header -->
+
+	<div style="padding-top: 1em;" class="post-inner" id="post-inner" >
+
+		<div class="entry-content visible-high-height">
+							
+		<?php
+			echo('<p class="has-small-font-size">'.get_the_excerpt().'</p>');
+		?>
+
+		</div><!-- .entry-content -->
+
+	</div><!-- .post-inner -->
 	
 	
 
