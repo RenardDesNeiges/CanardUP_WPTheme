@@ -1,10 +1,10 @@
 /*
 Theme Name: Canard Huppé
 Text Domain: twentytwenty
-Version: 1.0
+Version: 1.1
 Requires at least: 4.7
 Requires PHP: 5.2.4
-Description: Le theme du canard huppé, basiquement une modif arrachmax du theme "Twenty Twenty" de l'équipe Wordpress. (Voir le readme pour plus de détails/les licenses) Basiquement j'ai repompé le thême wordpress twentytwenty mais j'ai fait des trucs fancy genre: forcer le mode banière; mis des filtres noir & blanc; utilisé des polices open source stylées/standardisées
+Description: Le theme du canard huppé, basiquement une modif max du theme "Twenty Twenty" de l'équipe Wordpress. (Voir le readme pour plus de détails/les licenses) Basiquement j'ai repompé le thême wordpress twentytwenty mais j'ai fait des trucs fancy genre: nouvelle page d'accueil; mis des filtres noir & blanc; utilisé des polices open source stylées/standardisées
 Author: Titou
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -315,22 +315,6 @@ path {
 	font-style: italic;
 	font-display: swap;
 	src: url(./assets/fonts/aileron/Aileron-BoldItalic.otf);
-}
-@font-face {
-	font-family: "Aileron-Thin";
-	font-weight: 100 900;
-	/* stylelint-disable-line font-weight-notation */
-	font-style: normal;
-	font-display: swap;
-	src: url(./assets/fonts/aileron/Aileron-UltraLight.otf);
-}
-@font-face {
-	font-family: "Aileron-Thin";
-	font-weight: 100 900;
-	/* stylelint-disable-line font-weight-notation */
-	font-style: italic;
-	font-display: swap;
-	src: url(./assets/fonts/aileron/Aileron-UltraLightItalic.otf);
 }
 @font-face {
 	font-family: "Aileron-Black";
@@ -5739,7 +5723,7 @@ a.to-the-top > * {
 	}
 
 	.custom-logo-link {
-		filter: drop-shadow(0.2em 0.1em 0.4em #000000);
+		filter: drop-shadow(0.1em 0.1em 0.3em #000000);
 	}
 
 	/* HEADER NAVIGATION */
@@ -6553,17 +6537,4 @@ a.to-the-top > * {
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-}
-
-@media (max-width: 700px){
-	.cropped {
-		/*height: 15rem !important;*/
-	}
-	.heigh-loop-toggle {
-		/*height: 17rem !important;*/
-	}
-}
-
-.heigh-loop-toggle{
-	/*height:28rem;*/
 }

@@ -599,7 +599,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 			$wp_customize->add_setting(
 				'cover_template_overlay_opacity',
 				array(
-					'default'           => 80,
+					'default'           => 0,
 					'sanitize_callback' => 'absint',
 					'transport'         => 'postMessage',
 				)

@@ -637,6 +637,18 @@ add_action( 'customize_preview_init', 'twentytwenty_customize_preview_init' );
 function twentytwenty_get_color_for_area($post, $area = 'content', $context = 'text' ) {
 	//echo(get_post_meta($post, 'color', true));
 	// Get the value from the theme-mod.
+
+	//list of possible colors defined :
+	$pinkHEX = '#ed5488';
+	$redHEX = '#c41616';
+	$blueHEX = '#16a5be';
+	$orangeHEX = '#e88724';
+	$turquoiseHEX = '#a2dab4';
+	$greenHEX = '#9ccb3f';
+	$yellowHEX = '#edd548';
+	$purpleHEX = '#9b5baa';
+	
+
 	if($post != false){
 		if(get_post_meta($post, 'color', true) == "red"){
 			//echo(" DOING THE RED THINGY ");
@@ -645,27 +657,19 @@ function twentytwenty_get_color_for_area($post, $area = 'content', $context = 't
 			array(
 				'content'       => array(
 					'text'      => '#000000',
-					'accent'    => '#db0f0f',
+					'accent'    => $redHEX,
 					'secondary' => '#7d7979',
 					'borders'   => '#dcd7ca',
 				),
 				'header-footer' => array(
 					'text'      => '#000000',
-					'accent'    => '#db0f0f',
+					'accent'    => $redHEX,
 					'secondary' => '#7d7979',
 					'borders'   => '#dcd7ca',
 					'white'		=> '#ffffff'
 				),
 			)
 			);
-			/*echo(" text => ");
-			echo($settings['content']['text'] );
-			echo(" ; accent => ");
-			echo($settings['content']['accent'] );
-			echo(" ; secondary => ");
-			echo($settings['content']['secondary'] );
-			echo(" ; borders => ");
-			echo($settings['content']['borders'] );*/
 		}
 		elseif(get_post_meta($post, 'color', true) == "blue"){
 			$settings = get_theme_mod(
@@ -673,14 +677,14 @@ function twentytwenty_get_color_for_area($post, $area = 'content', $context = 't
 			array(
 				'content'       => array(
 					'text'      => '#000000',
-					'accent'    => '#3497e3',
+					'accent'    => $blueHEX,
 					'secondary' => '#7d7979',
 					'borders'   => '#dcd7ca',
 					'white'		=> '#ffffff'
 				),
 				'header-footer' => array(
 					'text'      => '#000000',
-					'accent'    => '#3497e3',
+					'accent'    => $blueHEX,
 					'secondary' => '#7d7979',
 					'borders'   => '#dcd7ca',
 					'white'		=> '#ffffff'
@@ -694,14 +698,14 @@ function twentytwenty_get_color_for_area($post, $area = 'content', $context = 't
 			array(
 				'content'       => array(
 					'text'      => '#000000',
-					'accent'    => '#a26bc2',
+					'accent'    => $pinkHEX,
 					'secondary' => '#7d7979',
 					'borders'   => '#dcd7ca',
 					'white'		=> '#ffffff'
 				),
 				'header-footer' => array(
 					'text'      => '#000000',
-					'accent'    => '#a26bc2',
+					'accent'    => $pinkHEX,
 					'secondary' => '#7d7979',
 					'borders'   => '#dcd7ca',
 					'white'		=> '#ffffff'
@@ -715,14 +719,77 @@ function twentytwenty_get_color_for_area($post, $area = 'content', $context = 't
 			array(
 				'content'       => array(
 					'text'      => '#000000',
-					'accent'    => '#e37329',
+					'accent'    => $orangeHEX,
 					'secondary' => '#7d7979',
 					'borders'   => '#dcd7ca',
 					'white'		=> '#ffffff'
 				),
 				'header-footer' => array(
 					'text'      => '#000000',
-					'accent'    => '#e37329',
+					'accent'    => $orangeHEX,
+					'secondary' => '#7d7979',
+					'borders'   => '#dcd7ca',
+					'white'		=> '#ffffff'
+				),
+			)
+			);
+		}
+		elseif(get_post_meta($post, 'color', true) == "turquoise"){
+			$settings = get_theme_mod(
+			'accent_accessible_colors_TURQUOISE',
+			array(
+				'content'       => array(
+					'text'      => '#000000',
+					'accent'    => $turquoiseHEX,
+					'secondary' => '#7d7979',
+					'borders'   => '#dcd7ca',
+					'white'		=> '#ffffff'
+				),
+				'header-footer' => array(
+					'text'      => '#000000',
+					'accent'    => $turquoiseHEX,
+					'secondary' => '#7d7979',
+					'borders'   => '#dcd7ca',
+					'white'		=> '#ffffff'
+				),
+			)
+			);
+		}
+		elseif(get_post_meta($post, 'color', true) == "yellow"){
+			$settings = get_theme_mod(
+			'accent_accessible_colors_YELLOW',
+			array(
+				'content'       => array(
+					'text'      => '#000000',
+					'accent'    => $yellowHEX,
+					'secondary' => '#7d7979',
+					'borders'   => '#dcd7ca',
+					'white'		=> '#ffffff'
+				),
+				'header-footer' => array(
+					'text'      => '#000000',
+					'accent'    => $yellowHEX,
+					'secondary' => '#7d7979',
+					'borders'   => '#dcd7ca',
+					'white'		=> '#ffffff'
+				),
+			)
+			);
+		}
+		elseif(get_post_meta($post, 'color', true) == "purple"){
+			$settings = get_theme_mod(
+			'accent_accessible_colors_PURPLE',
+			array(
+				'content'       => array(
+					'text'      => '#000000',
+					'accent'    => $purpleHEX,
+					'secondary' => '#7d7979',
+					'borders'   => '#dcd7ca',
+					'white'		=> '#ffffff'
+				),
+				'header-footer' => array(
+					'text'      => '#000000',
+					'accent'    => $purpleHEX,
 					'secondary' => '#7d7979',
 					'borders'   => '#dcd7ca',
 					'white'		=> '#ffffff'
@@ -737,14 +804,14 @@ function twentytwenty_get_color_for_area($post, $area = 'content', $context = 't
 			array(
 				'content'       => array(
 					'text'      => '#000000',
-					'accent'    => '#019432',
+					'accent'    => $greenHEX,
 					'secondary' => '#7d7979',
 					'borders'   => '#dcd7ca',
 					'white'		=> '#ffffff'
 				),
 				'header-footer' => array(
 					'text'      => '#000000',
-					'accent'    => '#019432',
+					'accent'    => $greenHEX,
 					'secondary' => '#7d7979',
 					'borders'   => '#dcd7ca',
 					'white'		=> '#ffffff'
@@ -759,14 +826,14 @@ function twentytwenty_get_color_for_area($post, $area = 'content', $context = 't
 			array(
 				'content'       => array(
 					'text'      => '#000000',
-					'accent'    => '#db2121',
+					'accent'    => $greenHEX,
 					'secondary' => '#7d7979',
 					'borders'   => '#dcd7ca',
 					'white'		=> '#ffffff'
 				),
 				'header-footer' => array(
 					'text'      => '#000000',
-					'accent'    => '#db2121',
+					'accent'    => $greenHEX,
 					'secondary' => '#7d7979',
 					'borders'   => '#dcd7ca',
 					'white'		=> '#ffffff'
@@ -776,8 +843,10 @@ function twentytwenty_get_color_for_area($post, $area = 'content', $context = 't
 	}
 	
 	// If we have a value return it.
-	if ( isset( $settings[ $area ] ) && isset( $settings[ $area ][ $context ] ) ) {
-		return $settings[ $area ][ $context ];
+	if(!is_admin()){
+		if ( isset( $settings[ $area ] ) && isset( $settings[ $area ][ $context ] ) ) {
+			return $settings[ $area ][ $context ];
+		}
 	}
 
 	// Return false if the option doesn't exist.

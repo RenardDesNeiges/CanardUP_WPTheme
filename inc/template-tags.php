@@ -398,7 +398,7 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 				}
 
 				// Tags.
-				if ( in_array( 'tags', $post_meta, true ) && has_tag() ) {
+				/*if ( in_array( 'tags', $post_meta, true ) && has_tag() ) {
 
 					$has_meta = true;
 					?>
@@ -412,8 +412,8 @@ function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' )
 						</span>
 					</li>
 					<?php
-
-				}
+				
+				}*/
 				/*
 				// Comments link.
 				if ( in_array( 'comments', $post_meta, true ) && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {

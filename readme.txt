@@ -19,6 +19,10 @@ la philosophie du design est un peu "design typographique" avec un minimum d'él
 
 == Changelog ==
 
+= 1.1 =
+
+Nouvelle page d'accueil, gestion des couleurs avec des custom fields
+
 = 1.0 =
 
 Wallah frerot g fait le thême c'est la seule version
