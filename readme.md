@@ -1,4 +1,4 @@
-![screenshot](/Applications/MAMP/htdocs/wordpress/wp-content/themes/CanardUP_WPTheme/screenshot.png)
+![screenshot](screenshot.png)
 
 # Canard Huppé
 
