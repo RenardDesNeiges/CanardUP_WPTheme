@@ -1,6 +1,6 @@
 ![screenshot](/Applications/MAMP/htdocs/wordpress/wp-content/themes/CanardUP_WPTheme/screenshot.png)
 
-#Canard Huppé
+# Canard Huppé
 
 Contributors: Titouan Renard (et l'opinion d'Esma Boudemagh) + the WordPress team
 Tested up to: 5.3
@@ -10,7 +10,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Default theme for 2020.
 
-##Description 
+## Description 
 
 Basiquement j'ai repompé le thême wordpress twentytwenty mais j'ai fait des trucs fancy genre 
 - Complêtement refait la page d'accueil
@@ -26,12 +26,12 @@ la philosophie du design est un peu "design typographique" avec un minimum d'él
 * 1.1:  Nouvelle page d'accueil, gestion des couleurs avec des custom fields
 * 1.0: Wallah frerot g fait le thême c'est la seule version
 
-##Copyright 
+## Copyright 
 
 Le Thême du canard est sous licence "à la rigueur paie moi une binch si tu veux 
 repomper mon theme mais en vrai c'est pas un drame si tu me paies pas de binch"
 
-###*Ceci dit il réutilise le thême Twenty Twenty qui lui est sous GNU GPL :*
+### *Ceci dit il réutilise le thême Twenty Twenty qui lui est sous GNU GPL :*
 
 **Twenty Twenty WordPress Theme, Copyright 2019 WordPress.org
 Twenty Twenty is distributed under the terms of the GNU GPL.**
@@ -93,7 +93,7 @@ Included as part of the following classes and functions:
 Underscores 
 https://underscores.me/, (C) 2012-2019 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 
-###*En plus de ça le thême canard huppé utilise les polices Aileron et IBM serif*
+### *En plus de ça le thême canard huppé utilise les polices Aileron et IBM serif*
 
 **Aileron Black** is a neo-grotesque interpretation of Helvetica and Univers. Aileronwas created by Sora Sagano and is currently distributed by [dotcolon](http://dotcolon.net/font/aileron/). It was initially submitted to us by [Open Foundry](https://open-foundry.com/fonts/@open_foundry). Black is a Sans Serif cut of the Aileron family,which consists of 16 different styles: UltraLight, UltraLight Italic, Thin, Thin Italic, Light, Light Italic, Regular, Italic, SemiBold, SemiBold Italic, Bold, Bold Italic, Heavy, Heavy Italic, Black and Black Italic.
 
