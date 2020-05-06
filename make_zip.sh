@@ -1,0 +1,1 @@
+zip -r ../canard_huppe.zip . -x '*.git*' -x '*.vscode/*'
