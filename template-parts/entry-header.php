@@ -76,11 +76,12 @@ if ( is_singular() ) {
 
 			<?php
 		}
-
+		$image_url = ! post_password_required() ? get_the_post_thumbnail_url( get_the_ID(), 'twentytwenty-fullscreen' ) : '';
+		
 		// Default to displaying the post meta.
 		twentytwenty_the_post_meta( get_the_ID(), 'single-top' );
 		?>
-
+		<meta property="og:image" content="<?php echo $image_url ?>">
 	</div><!-- .entry-header-inner -->
 
 </header><!-- .entry-header -->
